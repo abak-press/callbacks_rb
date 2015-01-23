@@ -1,6 +1,6 @@
 # CallbacksRb
 
-TODO: Write a gem description
+External callbacks
 
 ## Installation
 
@@ -20,11 +20,27 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+class Foo
+  include CallbacksRb
+
+  callback :on_bar
+
+  def bar
+    fire_callback(:on_bar, 'param')
+  end
+end
+
+Foo.new.on_bar do |arg|
+  puts arg.inspect
+end
+
+Foo.bar
+```
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/callbacks_rb/fork )
+1. Fork it ( https://github.com/abak-press/callbacks_rb/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
